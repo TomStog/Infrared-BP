@@ -38,9 +38,6 @@ if __name__ == "__main__":
   predictors = ['mean_std', 'ms_mean']
   outcome = ['SBP', 'DBP']
 
-  norm_param = 1
-  kf = KFold(n_splits=6, random_state=None, shuffle=True)
-
   X = data[predictors].values
   y_D_BP = data['DBP'].values
   y_S_BP = data['SBP'].values
