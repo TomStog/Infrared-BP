@@ -18,20 +18,6 @@ def calculate_percentage_less_than(arr, value):
     percentage = (count / total) * 100
     return percentage
 
-def calculate_absolute_error(array1, array2):
-    # Check if the arrays have the same shape
-    if array1.shape != array2.shape:
-        raise ValueError("Arrays must have the same shape.")
-
-    # Compute the absolute difference between corresponding elements
-    absolute_diff = np.abs(array1 - array2)
-
-    # Calculate absolute error for each column
-    absolute_error_column1 = absolute_diff[:, 0]
-    absolute_error_column2 = absolute_diff[:, 1]
-
-    return absolute_error_column1, absolute_error_column2
-
 if __name__ == "__main__":
    
     data = pd.read_csv('./blood_pressure_mean_std.csv')
