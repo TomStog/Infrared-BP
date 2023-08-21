@@ -1,3 +1,3 @@
 # Infrared-BP
 
-The dataset used for the "Non-Contact Blood Pressure Estimation using infrared motion magnified facial video" publication. The code developed is to fit the data to the reference Blood Pressure values.
+The dataset used for the "Non-Contact Blood Pressure Estimation using infrared motion magnified facial video" publication. The code developed is to fit the data to the reference Blood Pressure values. The dataset can be viewed and downloaded through this link : [https://mega.nz/folder/KdhlnSjB#vX4uepisNf2s_P4sMHsqjA]
