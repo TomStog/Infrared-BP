@@ -28,6 +28,7 @@ if __name__ == "__main__":
     y_D_BP = data['DBP'].values
     y_S_BP = data['SBP'].values
     
+    norm_param = 1
     n_features = len(predictors)
     
     abs_dbp = []
