@@ -6,6 +6,8 @@ from sklearn.metrics import r2_score
 from pygam import LinearGAM
 from statistics import mean
 import statistics
+import time
+import psutil
 
 def calculate_percentage_less_than(arr, value):
     count = 0
@@ -17,6 +19,12 @@ def calculate_percentage_less_than(arr, value):
     return percentage
 
 if __name__ == "__main__":
+
+    process = psutil.Process()
+    memory_info = process.memory_info()
+    print(f"Memory used by the script: {memory_info.rss} bytes")
+
+    start = time.time()
    
     data = pd.read_csv('./blood_pressure_mean_std.csv')
     predictors = ['mean_std', 'ms_mean']
@@ -59,6 +67,10 @@ if __name__ == "__main__":
     
     mae_dbp_15.append(calculate_percentage_less_than(np.abs(y_hat_D_BP - y_D_BP), 15/norm_param))
     mae_sbp_15.append(calculate_percentage_less_than(np.abs(y_hat_S_BP - y_S_BP), 15/norm_param))
+
+    end = time.time()
+
+    print("Time consumed in working: ",(end - start)*1000, "milliseconds.")
 
     print("BHS Protocol")
     print("SPB - Less than 5 mmHg: %.3f - Less than 10 mmHg: %.3f - Less than 15 mmHg: %.3f" %(mean(mae_sbp_5), mean(mae_sbp_10), mean(mae_sbp_15)))
