@@ -81,24 +81,24 @@ for k=1:person_len
         
         [matchedPeaks3, matchedPeaks4] = matchAndExcludePeaks(pks_ind3, pks_ind4);
         [matchedPeaks3, matchedPeaks4] = keepsmalldif(matchedPeaks3, matchedPeaks4);
+
+        % Code for plotting the PTTs
+        %figure,        
+        %p1 = plot(meanG1(1:50));
+        %hold on
+        %p3 = scatter(matchedPeaks1(1:6),meanG1(matchedPeaks1(1:6)),'ro');
+        %hold on,
+        %p2 = plot(meanG2(1:50));
+        %hold on
+        %scatter(matchedPeaks2(1:6),meanG2(matchedPeaks2(1:6)),'ro');
+        %xlabel('Frames') 
+        %ylabel('Magnitude')
+        %title('Pulse Transit Time Graph')
+        %legend([p1 p2 p3],{'Forehead Signal','Upper Palm Signal','Local Peak'},'Location','southeast')
+        %hold off
         
-        figure,        
-        p1 = plot(meanG1(1:50));
-        hold on
-        p3 = scatter(matchedPeaks1(1:6),meanG1(matchedPeaks1(1:6)),'ro');
-        hold on,
-        p2 = plot(meanG2(1:50));
-        hold on
-        scatter(matchedPeaks2(1:6),meanG2(matchedPeaks2(1:6)),'ro');
-        xlabel('Frames') 
-        ylabel('Magnitude')
-        title('Pulse Transit Time Graph')
-        legend([p1 p2 p3],{'Forehead Signal','Upper Palm Signal','Local Peak'},'Location','southeast')
-        hold off
-        
-        %close all
         test1 = median(abs(matchedPeaks1-matchedPeaks2))*1000/vidObj2.FrameRate;
-        test1 = median(abs(matchedPeaks3-matchedPeaks4))*1000/vidObj2.FrameRate;
+        test2 = median(abs(matchedPeaks3-matchedPeaks4))*1000/vidObj2.FrameRate;
         M_temp = [M_temp;test1];
         N_temp = [N_temp;test2];
     end    
