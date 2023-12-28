@@ -105,4 +105,4 @@ for k=1:person_len
     M = [M;mean(M_temp) mean(N_temp) gt_bp(k,1) gt_bp(k,2)];
 end
 
-xlswrite('blood_pressure_test_1.xlsx',M)
+xlswrite('blood_pressure_mean_std.xlsx',M)
