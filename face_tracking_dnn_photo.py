@@ -1,10 +1,11 @@
 import cv2
 import numpy as np
+import csv
 
 # DNN-based Face Detector (SSD)
 dnn_net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'res10_300x300_ssd_iter_140000.caffemodel')
 
-image = cv2.imread('08.png')
+image = cv2.imread('sample.jpg')
 
 largest_box = None  # Initialize variable to store the largest bounding box
 max_area = 0  # Initialize maximum area as 0
@@ -33,6 +34,17 @@ for i in range(detections_dnn.shape[2]):
 if largest_box is not None:
     (startX, startY, endX, endY) = largest_box
     cv2.rectangle(image, (startX, startY), (endX, endY), (0, 255, 0), 2)
+
+data = [[startX, startY, (endX-startX), (endY-startY)]] #MATLAB
+
+# Open the file for writing
+with open('sample_face_coord.txt', 'w') as file:
+    # Create a CSV writer object
+    writer = csv.writer(file, delimiter=',')
+
+    # Write the single row of data to the file
+    writer.writerow(data)
+    #writer.writerow(data[0])
 
 cv2.imshow('Face Tracking', cv2.resize(image, (0, 0), fx=0.5, fy=0.5))
 cv2.waitKey(0)
