@@ -8,4 +8,4 @@ The dataset used for the "Non-Contact Blood Pressure Estimation using infrared m
 - Crop each ROI from the original videostream using MATLAB
 - Apply Eulerian Video Magnification
 - Run PTT estimation program to produce the "blood_pressure_mean_std.csv"
-- Feed "blood_pressure_mean_std.csv" to "blood_pressure_gam.py" and "regressors_bp_2.py"
+- Feed "blood_pressure_mean_std.csv" to "blood_pressure_gam.py" and "regressors_bp.py"
