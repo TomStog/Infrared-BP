@@ -5,7 +5,6 @@ import pandas as pd
 from pandas import read_csv
 from sklearn.metrics import r2_score
 import numpy as np
-from statistics import mean
 import time
 import psutil
 
@@ -86,8 +85,8 @@ if __name__ == "__main__":
     print("Time consumed in working: ",(end - start)*1000, "milliseconds.")
     
     print("*BHS Protocol*")
-    print("SPB - Less than 5 mmHg: %.3f - Less than 10 mmHg: %.3f - Less than 15 mmHg: %.3f" %(mean(mae_sbp_5), mean(mae_sbp_10), mean(mae_sbp_15)))
-    print("DPB - Less than 5 mmHg: %.3f - Less than 10 mmHg: %.3f - Less than 15 mmHg: %.3f" %(mean(mae_dbp_5), mean(mae_dbp_10), mean(mae_dbp_15)))
+    print("SPB - Less than 5 mmHg: %.3f - Less than 10 mmHg: %.3f - Less than 15 mmHg: %.3f" %(np.mean(mae_sbp_5), np.mean(mae_sbp_10), np.mean(mae_sbp_15)))
+    print("DPB - Less than 5 mmHg: %.3f - Less than 10 mmHg: %.3f - Less than 15 mmHg: %.3f" %(np.mean(mae_dbp_5), np.mean(mae_dbp_10), np.mean(mae_dbp_15)))
     print("*AAMI Protocol*")
     print("Mean Difference - SBP: ", np.mean(np.array(abs_sbp)))
     print("Mean Difference - DBP: ", np.mean(np.array(abs_dbp)))
