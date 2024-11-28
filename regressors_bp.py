@@ -65,8 +65,8 @@ if __name__ == "__main__":
     y_hat_D_BP = model_D_BP.predict(x_poly)
     y_hat_S_BP = model_S_BP.predict(x_poly)
 
-    abs_dbp.append(np.abs(y_hat_D_BP - y_D_BP))
-    abs_sbp.append(np.abs(y_hat_S_BP - y_S_BP))
+    abs_dbp.append(np.abs(y_hat_D_BP - y_D_BP) * norm_param)
+    abs_sbp.append(np.abs(y_hat_S_BP - y_S_BP) * norm_param)
 
     mae_dbp_5.append(calculate_percentage_less_than(np.abs(y_hat_D_BP - y_D_BP), 5/norm_param))
     mae_sbp_5.append(calculate_percentage_less_than(np.abs(y_hat_S_BP - y_S_BP), 5/norm_param))
